@@ -1,0 +1,7 @@
+apiVersion: anti.no.anti.no/v1
+kind: PolicyEngineEndpoint
+metadata:
+  name: policyengineendpoint-sample
+spec:
+  # Add fields here
+  foo: bar

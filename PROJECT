@@ -1,0 +1,7 @@
+domain: k8s.anti.no
+repo: github.com/laetho/policyengineendpoint
+resources:
+- group: k8s.anti.no
+  kind: PolicyEngineEndpoint
+  version: v1
+version: "2"

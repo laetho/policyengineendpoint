@@ -1,0 +1,24 @@
+# permissions for end users to edit policyengineendpoints.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: policyengineendpoint-editor-role
+rules:
+- apiGroups:
+  - anti.no.anti.no
+  resources:
+  - policyengineendpoints
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - anti.no.anti.no
+  resources:
+  - policyengineendpoints/status
+  verbs:
+  - get
