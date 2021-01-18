@@ -37,10 +37,98 @@ spec:
         spec:
           description: PolicyEngineEndpointSpec defines the desired state of PolicyEngineEndpoint
           properties:
-            foo:
-              description: Foo is an example field of PolicyEngineEndpoint. Edit policyengineendpoint_types.go
-                to remove/update
+            host:
               type: string
+            modules:
+              items:
+                properties:
+                  consumers:
+                    items:
+                      properties:
+                        email:
+                          type: string
+                        name:
+                          type: string
+                      required:
+                      - name
+                      type: object
+                    type: array
+                  default:
+                    properties:
+                      allow:
+                        type: string
+                      deny:
+                        type: string
+                      hour:
+                        description: Rate limit arguments
+                        type: integer
+                      issuer:
+                        type: string
+                      minute:
+                        type: integer
+                      order:
+                        description: IP or HTTP verb allow deny
+                        type: string
+                      password:
+                        type: string
+                      preserve_host:
+                        type: boolean
+                      second:
+                        type: integer
+                      secret:
+                        description: Authentication related
+                        type: string
+                      strip_path:
+                        type: boolean
+                      url:
+                        description: Endpoint backend related
+                        type: string
+                    type: object
+                  general:
+                    properties:
+                      callback:
+                        description: oAuth2
+                        type: string
+                      client_id:
+                        type: string
+                      cookie:
+                        type: string
+                      jwt_secret:
+                        description: Custom JWT signing secret
+                        type: string
+                      optional:
+                        type: boolean
+                      provider:
+                        type: string
+                      realm:
+                        type: string
+                      secret:
+                        description: Client secret from provider
+                        type: string
+                      skew:
+                        description: HMAC
+                        type: string
+                      ttl:
+                        type: string
+                    type: object
+                  name:
+                    type: string
+                  order:
+                    type: integer
+                required:
+                - name
+                - order
+                type: object
+              type: array
+            name:
+              type: string
+            string:
+              type: string
+          required:
+          - host
+          - modules
+          - name
+          - string
           type: object
         status:
           description: PolicyEngineEndpointStatus defines the observed state of PolicyEngineEndpoint
